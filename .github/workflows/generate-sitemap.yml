@@ -1,0 +1,21 @@
+name: Generate Sitemap
+on:
+  push:
+    branches: [ main ]  # 你的主分支
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate sitemap
+        uses: guimauvedigital/generate-sitemap@v1
+        with:
+          base_url: "https://你的用户名.github.io"  # 你的域名
+          output_path: "sitemap.xml"  # 输出到根目录
+          input_dir: "."               # 扫描根目录的 html/md
+      - name: Commit & Push
+        uses: ad-m/github-push-action@master
+        with:
+          branch: main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
