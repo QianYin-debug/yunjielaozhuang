@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://qianyin-debug.github.io/yunjielaozhuang/sitemap.xml
